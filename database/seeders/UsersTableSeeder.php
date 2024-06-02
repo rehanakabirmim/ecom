@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             //  Admin
             [
                 'name'=>'Admin',
-                'username'=>'admin';
+                'username'=>'admin',
                 'email'=>'admin@gmail.com',
                 'password'=>Hash::make('111'),
                 'role'=>'admin',
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             // Vendor
             [
                 'name'=>'Vendor',
-                'username'=>'vendor';
+                'username'=>'vendor',
                 'email'=>'vendor@gmail.com',
                 'password'=>Hash::make('111'),
                 'role'=>'vendor',
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             // User or Customer
             [
                 'name'=>'User',
-                'username'=>'user';
+                'username'=>'user',
                 'email'=>'user@gmail.com',
                 'password'=>Hash::make('111'),
                 'role'=>'user',
