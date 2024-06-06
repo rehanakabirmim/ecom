@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\VendonController;
+use App\Http\Controllers\VendorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,8 +43,12 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 //Vendor
 Route::middleware(['auth','role:vendor'])->group(function(){
-    Route::get('/vendor/dashboard',[VendonController::class,'VendorDashboard'])->name('vendor.dashboard');
+    Route::get('/vendor/dashboard',[VendorController::class,'VendorDashboard'])->name('vendor.dashboard');
+
+    Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
 });
 
 //Admin Login
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
+//Vendor Login
+Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
