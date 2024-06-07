@@ -46,6 +46,7 @@ Route::middleware(['auth','role:vendor'])->group(function(){
     Route::get('/vendor/dashboard',[VendorController::class,'VendorDashboard'])->name('vendor.dashboard');
 
     Route::get('/vendor/logout', [VendorController::class, 'VendorDestroy'])->name('vendor.logout');
+    Route::get('/vendor/profile', [VendorController::class, 'VendorProfile'])->name('vendor.profile');
 });
 
 //Admin Login
