@@ -71,7 +71,7 @@
 					<div class="col-lg-8">
 						<div class="card">
 							<div class="card-body">
-								<form method="post" action="{{ route('admin.profile.store')}}" enctype="multipart/form-data">
+								<form method="post" action="{{ route('vendor.profile.store')}}" enctype="multipart/form-data">
 									@csrf
 								<div class="row mb-3">
 									<div class="col-sm-3">
@@ -122,11 +122,11 @@
 									<div class="col-sm-9 text-secondary">
                                     <select name="vendor_join"  class="form-select mb-3" aria-label="Default select example">
 									<option selected="">Open this select menu</option>
-									<option value="2022">2022</option>
-									<option value="2023">2023</option>
-									<option value="2024">2024</option>
-                                    <option value="2025">2025</option>
-									<option value="2026">2026</option>
+									<option value="2022" {{ $vendorData->vendor_join == 2022 ? 'selected' : '' }}>2022</option>
+									<option value="2023" {{ $vendorData->vendor_join == 2023 ? 'selected' : '' }}>2023</option>
+									<option value="2024" {{ $vendorData->vendor_join == 2024 ? 'selected' : '' }}>2024</option>
+                                    <option value="2025" {{ $vendorData->vendor_join == 2025 ? 'selected' : '' }}>2025</option>
+									<option value="2026" {{ $vendorData->vendor_join == 2026 ? 'selected' : '' }}>2026</option>
 								</select>
 									</div>
 								</div>
@@ -136,7 +136,7 @@
 										<h6 class="mb-0">Vendor Short Info</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-                                    <textarea name="vendor_short_info" class="form-control" id="inputAddress2" placeholder="Address" rows="3"></textarea>
+                                    <textarea name="vendor_short_info" class="form-control" id="inputAddress2" placeholder="Vendor_info" rows="3">{{$vendorData->vendor_short_info}}</textarea>
 									</div>
 								</div>
 
