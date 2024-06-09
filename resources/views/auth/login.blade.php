@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Easy Online Shop Store</title>
+    <title>Login Easy Online Shop Store</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -48,7 +48,7 @@
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
                                             <h1 class="mb-5">Login</h1>
-                                            <p class="mb-30">Don't have an account? <a href="page-register.html">Create here</a></p>
+                                            <p class="mb-30">Don't have an account? <a href="{{ route('register') }}">Create here</a></p>
                                         </div>
                                         <form method="POST" action="{{ route('login') }}">
                                         @csrf
