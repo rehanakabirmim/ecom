@@ -40,14 +40,14 @@
                             @csrf
 								
 							@if (session('status'))
-						<div class="alert alert-success" role="alert">
-								{{session('status')}}
-						</div>
-						@elseif(session('error'))
-						<div class="alert alert-danger" role="alert">
-							{{session('error')}}
-						</div>
-						@endif
+							<div class="alert alert-success" role="alert">
+									{{session('status')}}
+							</div>
+							@elseif(session('error'))
+							<div class="alert alert-danger" role="alert">
+								{{session('error')}}
+							</div>
+							@endif
 
 								<div class="row mb-3">
 									<div class="col-sm-3">
