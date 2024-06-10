@@ -56,4 +56,25 @@ class UserController extends Controller
         return redirect('/login');
     }
         //end method
+
+
+        public function UserUpdatePassword(Request $request){
+            // Validation 
+            $request->validate([
+                'old_password' => 'required',
+                'new_password' => 'required|confirmed', 
+            ]);
+    
+            // Match The Old Password
+            if (!Hash::check($request->old_password, auth::user()->password)) {
+                return back()->with("error", "Old Password Doesn't Match!!");
+            }
+    
+            // Update The new password 
+            User::whereId(auth()->user()->id)->update([
+                'password' => Hash::make($request->new_password)
+    
+            ]);
+            return back()->with("status", " Password Changed Successfully");
+    }
 }

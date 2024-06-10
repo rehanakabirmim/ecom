@@ -241,7 +241,7 @@
                                             <p>Already have an account? <a href="page-login.html">Log in instead!</a></p>
 
                                             
-                                        <form method="post" action="{{ route('user.profile.store')}}" >
+                                        <form method="post" action="{{ route('user.update.password')}}" >
                                         @csrf
                                         @if (session('status'))
                                         <div class="alert alert-success" role="alert">
