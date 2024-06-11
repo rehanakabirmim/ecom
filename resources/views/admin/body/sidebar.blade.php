@@ -25,8 +25,14 @@
 						</div>
 						<div class="menu-title">Brands</div>
 					</a>
-				</li>
-					
+				
+				<ul>
+						<li> <a href="{{route('all.brand')}}"><i class="bx bx-right-arrow-alt"></i>All Brand</a>
+						</li>
+						<li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>Add Brand</a>
+						</li>
+				</ul>		
+				</li>		
 				
 				<li>
 					<a href="javascript:;" class="has-arrow">
