@@ -42,7 +42,7 @@
 									<div class="form-group col-sm-9 text-secondary">
 										<!-- <input type="text" name="brand_name" class="form-control" placeholder="Brand Name" /> -->
 
-										<input type="text" class="form-control" id="brand_name" name="brand_name">
+										<input type="text" class="form-control" id="brand_name" name="brand_name" value="{{$brand->brand_name}}">
 									</div>
 								</div>
 								<!-- <div class="row mb-3">
@@ -62,7 +62,7 @@
 										<h6 class="mb-0">Brand Photo</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input  type="file" name="brand_image" class="form-control" id="image"/>
+										<input  type="file" name="brand_image" class="form-control" id="image" />
 									</div>
 								</div>
 
@@ -72,7 +72,7 @@
 										<h6 class="mb-0"> </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-									<img id="showImage" src="{{ url('./upload/no.png') }}" 
+									<img id="showImage" src="{{ asset(str_replace('public/', '', $brand->brand_image)) }}" 
 										alt="Brand" style="width: 100px; height: 100px;">
 										
 									</div>
