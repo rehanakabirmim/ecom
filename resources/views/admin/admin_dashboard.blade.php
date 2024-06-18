@@ -16,6 +16,7 @@
 	<!-- loader-->
 	<link href="{{asset('adminbackend')}}/assets/css/pace.min.css" rel="stylesheet" />
 	<script src="{{asset('adminbackend')}}/assets/js/pace.min.js"></script>
+	
 	<!-- Bootstrap CSS -->
 	<link href="{{asset('adminbackend')}}/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{asset('adminbackend')}}/assets/css/app.css" rel="stylesheet">
@@ -28,6 +29,7 @@
 	<link href="{{asset('adminbackend')}}/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 	<!-- Toaster link -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
 
 	<title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 </head>
@@ -173,6 +175,7 @@
 		  });
 	  </script>
 	  <script src="{{asset('adminbackend')}}/assets/js/index.js"></script>
+	  <script src="{{asset('adminbackend')}}/assets/js/validate.min.js"></script>
 	<!-- datatable -->
 	  <script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>

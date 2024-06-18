@@ -29,14 +29,14 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="table-responsive">
-							<table id="example" class="table table-striped table-bordered" style="width:100%">
+							<table id="example" class="table table-striped table-bordered" >
 								<thead>
 									<tr>
 										<th>#SL</th>
 										<th>Brand Name</th>
 										<th>Brand Image</th>
 										<th>Action</th>
-										
+						
 									</tr>
 								</thead>
 								<tbody>
@@ -45,11 +45,17 @@
 									<tr>
 										<td>{{$key ++}}</td>
 										<td>{{$item->brand_name}}</td>
-										<td><img src="{{asset($item->brand_image)}}" style="width:70px; height:40px;"></td>
+										<td>
+											<img src="{{ asset(str_replace('public/', '', $item->brand_image)) }}" style="width:70px; height:40px;" alt="Brand Image">
+										</td>
 										<td>
                                             <a href="" class="btn btn-info">Edit</a>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>
+										
+									
+										
+										
 										
 									</tr>
 									

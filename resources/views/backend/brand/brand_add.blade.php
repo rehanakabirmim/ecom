@@ -33,27 +33,36 @@
 					<div class="col-lg-10">
 						<div class="card">
 							<div class="card-body">
-								<form method="post" action="" enctype="multipart/form-data">
+								<form id="myForm"  method="post" action="{{route('brand.store')}}" enctype="multipart/form-data">
 									@csrf
 								<div class="row mb-3">
 									<div class="col-sm-3">
 										<h6 class="mb-0">Brand Name</h6>
 									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="text" class="form-control" placeholder="Brand Name" />
+									<div class="form-group col-sm-9 text-secondary">
+										<!-- <input type="text" name="brand_name" class="form-control" placeholder="Brand Name" /> -->
+
+										<input type="text" class="form-control" id="brand_name" name="brand_name">
 									</div>
 								</div>
-								
+								<!-- <div class="row mb-3">
+									<div class="col-sm-3">
+										<h6 class="mb-0">Brand Slug</h6>
+									</div>
+									<div class="col-sm-9 text-secondary">
+										<input type="text" name="brand_slug" class="form-control" placeholder="Brand Slug" />
+									</div>
+								</div> -->
 								
 								
 								
 								
 								<div class="row mb-3">
 									<div class="col-sm-3">
-										<h6 class="mb-0">Photo</h6>
+										<h6 class="mb-0">Brand Photo</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input  type="file" name="photo" class="form-control" id="image"/>
+										<input  type="file" name="brand_image" class="form-control" id="image"/>
 									</div>
 								</div>
 
@@ -63,7 +72,7 @@
 										<h6 class="mb-0"> </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-									<img id="showImage" src="{{ url('upload/no.png') }}" 
+									<img id="showImage" src="{{ url('./upload/no.png') }}" 
 										alt="Brand" sytle="width: 100px; height: 100px;">
 										
 									</div>
@@ -87,7 +96,34 @@
 		</div>
 	</div>
 
-
+	<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                brand_name: {
+                    required : true,
+                }, 
+            },
+            messages :{
+                brand_name: {
+                    required : 'Please Enter Brand Name',
+                },
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
