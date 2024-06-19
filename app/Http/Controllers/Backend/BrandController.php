@@ -62,8 +62,75 @@ class BrandController extends Controller
 
 
             }//end method
-            
 
 
-    }
+
+            public function UpdateBrand(Request $request){
+                $brand_id = $request->id;
+                $old_image = $request->old_image;
+
+                if($request->file('brand_image')){
+                    $manager = new ImageManager(new Driver());
+                    $name_gen = hexdec(uniqid()).'.'.$request->file('brand_image')->getClientOriginalExtension();
+                    $img = $manager->read($request->file('brand_image'));
+                    $img = $img->resize(300,300);
+                    
+                    $img->toJpeg(80)->save(base_path('public/upload/brand/'.$name_gen));
+                    $save_url = 'public/upload/brand/'.$name_gen;
+
+
+                    // if (file_exists($old_image)) {
+                    //     unlink($old_img);
+                    //  }
+                     Brand::findOrFail($brand_id)->update([
+                                'brand_name' => $request->brand_name,
+                                'brand_slug' => strtolower(str_replace(' ', '-',$request->brand_name)),
+                                'brand_image' => $save_url, 
+                            ]);
+                    
+                           $notification = array(
+                                'message' => 'Brand Updateded with image Successfully',
+                                'alert-type' => 'success'
+                            );
+                    
+                            return redirect()->route('all.brand')->with($notification); 
+                    
+                    
+                    
+                    
+                    
+                        }//end if
+
+
+                       
+                            else {
+
+                                Brand::findOrFail($brand_id)->update([
+                               'brand_name' => $request->brand_name,
+                               'brand_slug' => strtolower(str_replace(' ', '-',$request->brand_name)), 
+                           ]);
+                    
+                           $notification = array(
+                            'message' => 'Brand Updated without image Successfully',
+                            'alert-type' => 'success'
+                        );
+                
+                        return redirect()->route('all.brand')->with($notification); 
+                
+                        }//end else 
+                    
+                    
+                    
+                        
+    
+    
+    
+    
+                    }//end method
+                
+
+ }
+
+
+    
 
