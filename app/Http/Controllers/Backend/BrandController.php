@@ -22,7 +22,7 @@ class BrandController extends Controller
     }//end method
 
 
-    public function BrandStore(Request $request){
+    public function StoreBrand(Request $request){
         if($request->file('brand_image')){
             $manager = new ImageManager(new Driver());
             $name_gen = hexdec(uniqid()).'.'.$request->file('brand_image')->getClientOriginalExtension();
@@ -133,6 +133,7 @@ class BrandController extends Controller
 
     $brand = Brand::findOrFail($id);
     $img = $brand->brand_image;
+    
 
 
     Brand::findOrFail($id)->delete();
