@@ -46,11 +46,11 @@
 										<td>{{$key ++}}</td>
 										<td>{{$item->category_name}}</td>
 										<td>
-											<img src="{{ asset(str_replace('public/', '', $item->category_image)) }}" style="width:70px; height:40px;" alt="Brand Image">
+											<img src="{{ asset(str_replace('public/', '', $item->category_image)) }}" style="width:70px; height:40px;" alt="Category Image">
 										</td>
 										<td>
-                                            <a href="{{route('edit.brand',$item->id)}}" class="btn btn-info">Edit</a>
-                                            <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger" id="delete" >Delete</a>
+                                            <a href="{{route('edit.category',$item->id)}}" class="btn btn-info">Edit</a>
+                                            <a href="{{route('delete.category',$item->id)}}" class="btn btn-danger" id="delete" >Delete</a>
                                         </td>
 										
 									
