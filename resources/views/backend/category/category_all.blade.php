@@ -44,9 +44,9 @@
 
 									<tr>
 										<td>{{$key ++}}</td>
-										<td>{{$item->brand_name}}</td>
+										<td>{{$item->category_name}}</td>
 										<td>
-											<img src="{{ asset(str_replace('public/', '', $item->brand_image)) }}" style="width:70px; height:40px;" alt="Brand Image">
+											<img src="{{ asset(str_replace('public/', '', $item->category_image)) }}" style="width:70px; height:40px;" alt="Brand Image">
 										</td>
 										<td>
                                             <a href="{{route('edit.brand',$item->id)}}" class="btn btn-info">Edit</a>
