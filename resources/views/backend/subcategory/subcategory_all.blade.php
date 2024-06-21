@@ -4,7 +4,7 @@
 <div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Tables</div>
+					<div class="breadcrumb-title pe-3">All SubCategory</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
@@ -45,7 +45,7 @@
 									<tr>
 										<td>{{$key ++}}</td>
                                         
-										<td>{{$item->category_id}}</td>
+										<td>{{$item['category']['category_name']}}</td>
 
 										<td>{{$item->subcategory_name}}</td>
 										
