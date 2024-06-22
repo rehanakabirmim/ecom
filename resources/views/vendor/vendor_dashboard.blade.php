@@ -25,6 +25,8 @@
 	<link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/header-colors.css" />
 	
+	
+	<!-- Toaster link -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 	<title>Rukada - Responsive Bootstrap 5 Admin Template</title>
@@ -177,7 +179,7 @@
 
 
 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
  @if(Session::has('message'))

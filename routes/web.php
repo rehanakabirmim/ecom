@@ -70,9 +70,11 @@ Route::middleware(['auth','role:vendor'])->group(function(){
 //Admin Login
 Route::get('/admin/login', [AdminController::class, 'AdminLogin']);
 //Vendor Login
-Route::get('/vendor/login', [VendorController::class, 'VendorLogin']);
+Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('vendor.login');
+Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
+Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
-//For Brand 
+//For Admin Brand 
 Route::middleware(['auth','role:admin'])->group(function(){
 Route::controller(BrandController::class)->group(function(){
 Route::get('/all/brand','AllBrand')->name('all.brand');
@@ -87,7 +89,7 @@ Route::get('/delete/brand/{id}','DeleteBrand')->name('delete.brand');
 
 });
 
-//For Category 
+//For Admin Category 
 Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(CategoryController::class)->group(function(){
     Route::get('/all/category','AllCategory')->name('all.category');
@@ -103,7 +105,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     });
 
 
-    //For SubCategory 
+    //For Admin SubCategory 
     Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(SubCategoryController::class)->group(function(){
     Route::get('/all/subcategory','AllSubCategory')->name('all.subcategory');
