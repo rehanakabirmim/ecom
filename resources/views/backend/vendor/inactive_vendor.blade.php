@@ -37,6 +37,7 @@
 										<th>Vendor User</th>
 										<th>Join Date</th>
                                         <th>Vendor Email</th>
+										<!-- <th>Address</th> -->
                                         <th>Status</th>
                                         <th>Action</th>
 						
@@ -57,10 +58,11 @@
 										<td>{{$item->username}}</td>
                                         <td>{{$item->vendor_join}}</td>
                                         <td>{{$item->email}}</td>
+										<!-- <td>{{$item->address}}</td> -->
                                         <td><span class ="btn btn-secondary">{{$item->status}}</span></td>
 										
 										<td>
-                                            <a href="{{route('edit.subcategory',$item->id)}}" class="btn btn-info">Vendor Details</a>
+                                            <a href="{{route('inactive.vendor.details',$item->id)}}" class="btn btn-info">Vendor Details</a>
                                           
                                         </td>
 										

@@ -125,6 +125,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::controller(AdminController::class)->group(function(){
         Route::get('/vendor/inactive','VendorInactive')->name('vendor.inactive');
         Route::get('/vendor/active','VendorActive')->name('vendor.active');
+        Route::get('/inactive/vendor/details/{id}','InactiveVendorDetails')->name('inactive.vendor.details');
        
         }); //end medthod 
         
