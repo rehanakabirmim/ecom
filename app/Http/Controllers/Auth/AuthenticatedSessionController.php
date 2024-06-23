@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         $notification = array(
-            'message' => 'User Login Successfully',
+            'message' => 'Login Successfully',
             'alert-type' => 'success'
            );
         $url='';

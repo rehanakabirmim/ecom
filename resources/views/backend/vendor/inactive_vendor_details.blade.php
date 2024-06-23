@@ -49,7 +49,7 @@
 										<h6 class="mb-0">Shop Name</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input type="text" class="form-control" value="{{ $inactiVendorDetails->name}}" disabled />
+										<input type="text" name="name" class="form-control" value="{{ $inactiVendorDetails->name}}" />
 									</div>
 								</div>
 
@@ -124,7 +124,7 @@
 								<div class="row">
 									<div class="col-sm-3"></div>
 									<div class="col-sm-9 text-secondary">
-										<input type="submit" class="btn btn-danger px-4" value="Inactive Details" />
+										<input type="submit" class="btn btn-danger px-4" value="Active Details" />
 									</div>
 								</div>
 						

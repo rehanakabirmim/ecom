@@ -49,7 +49,7 @@
 										<h6 class="mb-0">Shop Name</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input type="text" class="form-control" value="{{ $actiVendorDetails->name}}" disabled />
+										<input type="text" name="name" class="form-control" value="{{ $actiVendorDetails->name}}" />
 									</div>
 								</div>
 
