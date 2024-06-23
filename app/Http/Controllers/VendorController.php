@@ -116,7 +116,7 @@ class VendorController extends Controller
                 'username'=>$request->username,
                 'email' => $request->email,
                 'phone'=> $request->phone,
-                'join_date' =>$request->join_date,
+                'vendor_join' =>$request->vendor_join,
                 'role' =>'vendor',
                 'status' =>'inactive',
                 'password' => Hash::make($request->password),

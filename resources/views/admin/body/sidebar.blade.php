@@ -67,11 +67,16 @@
 
 				<li class="menu-label">UI Elements</li>
 				<li>
-					<a href="widgets.html">
+				<a href="javascript:;" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-cookie'></i>
 						</div>
-						<div class="menu-title">Widgets</div>
+						<div class="menu-title">Vendor Manage</div>
 					</a>
+					<ul>
+						<li> <a href="{{route('vendor.inactive')}}"><i class="bx bx-right-arrow-alt"></i>All VendorInactive</a>
+						</li>
+						
+				</ul>	
 				</li>
 				<li>
 					<a href="javascript:;" class="has-arrow">

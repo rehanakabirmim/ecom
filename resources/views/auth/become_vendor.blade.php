@@ -57,7 +57,7 @@
                                                 <input type="text" id="phone" required="" name="phone"  placeholder="Phone" />
                                             </div>
                                             <div class="form-group">
-                                            <select name="join_date" class="form-select mb-3" aria-label="Default select example">
+                                            <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
                                                 <option selected="">Open this select Join Date</option>
                                                 <option value="2022">2022</option>
                                                 <option value="2023">2023</option>

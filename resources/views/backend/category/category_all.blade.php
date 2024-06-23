@@ -10,7 +10,7 @@
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Data Table</li>
+								<li class="breadcrumb-item active" aria-current="page">All Category</li>
 							</ol>
 						</nav>
 					</div>
@@ -40,7 +40,11 @@
 									</tr>
 								</thead>
 								<tbody>
-                            @foreach($categories as $key => $item)
+								@php
+                                    $key = 1;
+                                @endphp
+                                        
+                            @foreach($categories as $item)
 
 									<tr>
 										<td>{{$key ++}}</td>

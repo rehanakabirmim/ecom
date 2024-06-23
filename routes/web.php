@@ -114,8 +114,19 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
     Route::post('/update/subcategory','UpdateSubCategory')->name('update.subcategory');
     Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
-    });  
+    }); //end medthod 
     
     
     
-    });
+    });//end middleware
+
+     //For Vendor Active and Inactive all route 
+     Route::middleware(['auth','role:admin'])->group(function(){
+        Route::controller(AdminController::class)->group(function(){
+        Route::get('/vendor/inactive','VendorInactive')->name('vendor.inactive');
+       
+        }); //end medthod 
+        
+        
+        
+        });//end middleware
