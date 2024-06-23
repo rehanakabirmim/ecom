@@ -75,6 +75,8 @@
 					<ul>
 						<li> <a href="{{route('vendor.inactive')}}"><i class="bx bx-right-arrow-alt"></i>All VendorInactive</a>
 						</li>
+						<li> <a href="{{route('vendor.active')}}"><i class="bx bx-right-arrow-alt"></i>All VendorActive</a>
+						</li>
 						
 				</ul>	
 				</li>
