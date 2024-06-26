@@ -4,19 +4,19 @@
 <div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">All Brand</div>
+					<div class="breadcrumb-title pe-3">All Product</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">All Brand</li>
+								<li class="breadcrumb-item active" aria-current="page">All Product</li>
 							</ol>
 						</nav>
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-                            <a href="{{route('add.brand')}}" class="btn btn-primary">Add Brand</a>
+                            <a href="{{route('add.product')}}" class="btn btn-primary">Add Product</a>
 							
 							
 							
@@ -33,8 +33,12 @@
 								<thead>
 									<tr>
 										<th>#SL</th>
-										<th>Brand Name</th>
-										<th>Brand Image</th>
+                                        <th>Image</th>
+										<th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
+                                        <th>Discount</th>
+                                        <th>Status</th>
 										<th>Action</th>
 						
 									</tr>
@@ -44,15 +48,19 @@
                                     $key = 1;
                                 @endphp
                                         
-                            @foreach($brands as  $item)
+                            @foreach($products as  $item)
 
 									<tr>
 										<td>{{$key ++}}</td>
-										<td>{{$item->brand_name}}</td>
+										<td>{{$item->product_name}}</td>
 										<td>
-										<img src="{{ $item->brand_image ? asset(str_replace('public/', '', $item->brand_image)) : url('upload/no.png') }}" style="width:70px; height:40px;" alt="Brand Image">
+										<img src="{{ $item->product_thambnail ? asset(str_replace('public/', '', $item->product_thambnail)) : url('upload/no.png') }}" style="width:70px; height:40px;" alt="Brand Image">
 
-
+                                        <td>{{$item->selling_price}}</td>
+                                        <td>{{$item->product_qty}}</td>
+                                        <td>{{$item->discount_price}}</td>
+                                        <td>{{$item->status}}</td>
+                                        
 											
 										</td>
 										<td>
@@ -72,12 +80,16 @@
 									
 								</tbody>
 								<tfoot>
-									<tr>
-                                        <th>#SL</th>
-										<th>Brand Name</th>
-										<th>Brand Image</th>
+                                <tr>
+										<th>#SL</th>
+                                        <th>Image</th>
+										<th>Product Name</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
+                                        <th>Discount</th>
+                                        <th>Status</th>
 										<th>Action</th>
-										
+						
 									</tr>
 								</tfoot>
 							</table>

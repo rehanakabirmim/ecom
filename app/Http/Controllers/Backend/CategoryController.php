@@ -50,6 +50,22 @@ class CategoryController extends Controller
             
             
                 }//end if
+                else{
+                    Category::insert([
+                        'category_name' => $request->category_name,
+                        'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
+                       
+                    ]);
+            
+                   $notification = array(
+                        'message' => 'Category Inserted without Image Successfully',
+                        'alert-type' => 'success'
+                    );
+            
+                    return redirect()->route('all.category')->with($notification); 
+            
+            
+                }
             
             
             

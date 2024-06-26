@@ -19,7 +19,6 @@
                             <a href="{{route('add.category')}}" class="btn btn-primary">Add Category</a>
 							
 							
-							
 						</div>
 					</div>
 				</div>
@@ -50,7 +49,7 @@
 										<td>{{$key ++}}</td>
 										<td>{{$item->category_name}}</td>
 										<td>
-											<img src="{{ asset(str_replace('public/', '', $item->category_image)) }}" style="width:70px; height:40px;" alt="Category Image">
+										<img src="{{ $item->category_image ? asset(str_replace('public/', '', $item->category_image)) : url('upload/no.png') }}" style="width:70px; height:40px;" alt="Category Image">
 										</td>
 										<td>
                                             <a href="{{route('edit.category',$item->id)}}" class="btn btn-info">Edit</a>

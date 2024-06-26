@@ -50,7 +50,23 @@ class BrandController extends Controller
             
                 }//end if
             
-            
+            else{
+
+                Brand::insert([
+                    'brand_name' => $request->brand_name,
+                    'brand_slug' => strtolower(str_replace(' ', '-',$request->brand_name)),
+                     
+                ]);
+        
+               $notification = array(
+                    'message' => 'Brand Inserted without Image Successfully',
+                    'alert-type' => 'success'
+                );
+        
+                return redirect()->route('all.brand')->with($notification); 
+        
+
+            }
             
             } //end method
 
