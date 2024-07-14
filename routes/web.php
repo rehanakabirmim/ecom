@@ -76,7 +76,7 @@ Route::get('/vendor/login', [VendorController::class, 'VendorLogin'])->name('ven
 Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('become.vendor');
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
-//For Admin Brand 
+//For Admin Brand
 Route::middleware(['auth','role:admin'])->group(function(){
 Route::controller(BrandController::class)->group(function(){
 Route::get('/all/brand','AllBrand')->name('all.brand');
@@ -85,13 +85,13 @@ Route::post('/store/brand','StoreBrand')->name('store.brand');
 Route::get('/edit/brand/{id}','EditBrand')->name('edit.brand');
 Route::post('/update/brand','UpdateBrand')->name('update.brand');
 Route::get('/delete/brand/{id}','DeleteBrand')->name('delete.brand');
-});  
+});
 
 
 
 });
 
-//For Admin Category 
+//For Admin Category
 Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(CategoryController::class)->group(function(){
     Route::get('/all/category','AllCategory')->name('all.category');
@@ -100,14 +100,14 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
     Route::post('/update/category','UpdateCategory')->name('update.category');
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
-    });  
-    
-    
-    
     });
 
 
-    //For Admin SubCategory 
+
+    });
+
+
+    //For Admin SubCategory
     Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(SubCategoryController::class)->group(function(){
     Route::get('/all/subcategory','AllSubCategory')->name('all.subcategory');
@@ -116,13 +116,14 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
     Route::post('/update/subcategory','UpdateSubCategory')->name('update.subcategory');
     Route::get('/delete/subcategory/{id}','DeleteSubCategory')->name('delete.subcategory');
-    }); //end medthod 
-    
-    
-    
+    Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
+    }); //end medthod
+
+
+
     });//end middleware
 
-     //For Vendor Active and Inactive all route 
+     //For Vendor Active and Inactive all route
      Route::middleware(['auth','role:admin'])->group(function(){
         Route::controller(AdminController::class)->group(function(){
         Route::get('/vendor/inactive','VendorInactive')->name('vendor.inactive');
@@ -132,24 +133,24 @@ Route::middleware(['auth','role:admin'])->group(function(){
         Route::post('/active/vendor/approve','ActiVendorApprove')->name('active.vendor.approve');
         Route::get('/active/vendor/details/{id}','ActiveVendorDetails')->name('active.vendor.details');
         Route::post('/inactive/vendor/approve','InactiVendorApprove')->name('inactive.vendor.approve');
-       
-        }); //end medthod 
-        
-        
-        
+
+        }); //end medthod
+
+
+
         });//end middleware
 
 
 
-         //For Product all route 
-            
+         //For Product all route
+
             Route::middleware(['auth','role:admin'])->group(function(){
             Route::controller(ProductController::class)->group(function(){
             Route::get('/all/product','AllProduct')->name('all.product');
             Route::get('/add/product','AddProduct')->name('add.product');
-           
+
             });
-        
-        
-        
+
+
+
         });//end middleware

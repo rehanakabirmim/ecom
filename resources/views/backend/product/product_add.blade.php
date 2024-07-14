@@ -18,7 +18,7 @@
 						</nav>
 					</div>
 					<div class="ms-auto">
-						
+
 					</div>
 				</div>
 				<!--end breadcrumb-->
@@ -63,7 +63,7 @@
                                     <input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)">
 									<img src="" id="mainThmb" />
 
-									
+
                                 </div>
 
 								<div class="form-group mb-3">
@@ -85,7 +85,7 @@
 
 			  					</div> -->
 					</div>
-			
+
 
 					</div>
 						   <div class="col-lg-4">
@@ -110,29 +110,34 @@
 								  <div class="col-12">
 								  <label for="inputProductType" class="form-label">Product Brand</label>
 									<select name="brand_id" class="form-select" id="inputProductType">
-						
+
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach ($brands as $brand)
+
+
+										<option value="{{$brand->id}}">{{$brand->brand_name}}</option>
+										@endforeach
 									  </select>
 								  </div>
 								  <div class="col-12">
 								  <label for="inputVendor" class="form-label">Product Category</label>
 								  <select name="category_id" class="form-select" id="inputVendor">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+
+										@foreach ($categories as $cat)
+
+										<option value="{{$cat->id}}">{{$cat->category_name}}</option>
+										@endforeach
+
 									  </select>
 								  </div>
 								  <div class="col-12">
 								  <label for="inputCollection" class="form-label">Product SubCategory</label>
 								  <select name="subcategory_id" class="form-select" id="inputCollection">
 										<option></option>
-										<option value="1">One</option>
+										{{-- <option value="1">One</option>
 										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<option value="3">Three</option> --}}
 									  </select>
 								  </div>
 
@@ -140,23 +145,25 @@
 								  <label for="inputCollection" class="form-label">Select Vendor</label>
 								  <select name="vendor_id" class="form-select" id="inputCollection">
 										<option></option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										@foreach ( $activeVendor as $vendor)
+
+										<option value="{{$vendor->id}}">{{$vendor->name}}</option>
+										@endforeach
+
 									  </select>
 								  </div>
 
 
 								  <div class="row g-3">
 
-								<div class="col-md-6">	
+								<div class="col-md-6">
 								<div class="form-check">
 									<input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault">
 									<label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>
 								</div>
 								</div>
 
-								<div class="col-md-6">	
+								<div class="col-md-6">
 								<div class="form-check">
 									<input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault">
 									<label class="form-check-label" for="flexCheckDefault">Featured</label>
@@ -166,7 +173,7 @@
 
 
 
-								<div class="col-md-6">	
+								<div class="col-md-6">
 								<div class="form-check">
 									<input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault">
 									<label class="form-check-label" for="flexCheckDefault">Special Offer</label>
@@ -174,7 +181,7 @@
 								</div>
 
 
-								<div class="col-md-6">	
+								<div class="col-md-6">
 								<div class="form-check">
 									<input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault">
 									<label class="form-check-label" for="flexCheckDefault">Special Deals</label>
@@ -193,7 +200,7 @@
                                          <button type="button" class="btn btn-primary">Save Product</button>
 									  </div>
 								  </div>
-							  </div> 
+							  </div>
 						  </div>
 						  </div>
 					   </div><!--end row-->
@@ -214,7 +221,7 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
-</script>	
+</script>
 
 <script>
 
@@ -251,12 +258,36 @@
 
 
 </script>
-	
- @endsection 
- 
- 
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('select[name="category_id"]').on('change', function(){
+            var category_id = $(this).val();
+            if (category_id) {
+                $.ajax({
+                    url: "{{ url('/subcategory/ajax') }}/"+category_id,
+                    type: "GET",
+                    dataType:"json",
+                    success:function(data){
+                        $('select[name="subcategory_id"]').html('');
+                        var d =$('select[name="subcategory_id"]').empty();
+                        $.each(data, function(key, value){
+                            $('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+                        });
+                    },
+                });
+            } else {
+                alert('danger');
+            }
+        });
+    });
+</script>
+
+ @endsection
 
 
 
 
- 
+
+
