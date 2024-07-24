@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('vendor.vendor_dashboard')
+@section('vendor')
 
 <div class="page-content">
 				<!--breadcrumb-->
@@ -16,7 +16,7 @@
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-                            <a href="{{route('add.product')}}" class="btn btn-primary">Add Product</a>
+                            <a href="{{route('vendor.add.product')}}" class="btn btn-primary">Add Product</a>
 
 
 
@@ -83,15 +83,15 @@
 
 										</td>
 										<td>
-                                            <a href="{{route('edit.product',$item->id)}}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i></a>
-                                            <a href="{{route('product.delete',$item->id)}}" class="btn btn-danger" title="Delete Data" id="delete" ><i class="fa fa-trash"></i></a>
+                                            <a href="{{route('vendor.edit.product',$item->id)}}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{route('vendor.product.delete',$item->id)}}" class="btn btn-danger" title="Delete Data" id="delete" ><i class="fa fa-trash"></i></a>
 
                                             <a href="{{route('edit.brand',$item->id)}}" class="btn btn-warning" title="Details Page"><i class="fa fa-eye"></i></a>
 
                                             @if($item->status == 1)
-                                            <a href="{{route('product.inactive',$item->id)}}" class="btn btn-primary" title="Inactive"><i class="fa-solid fa-thumbs-down "></i></a>
+                                            <a href="{{route('vendor.product.inactive',$item->id)}}" class="btn btn-primary" title="Inactive"><i class="fa-solid fa-thumbs-down "></i></a>
                                             @else
-                                            <a href="{{route('product.active',$item->id)}}" class="btn btn-primary" title="Active"><i class="fa-solid fa-thumbs-up "></i></a>
+                                            <a href="{{route('vendor.product.active',$item->id)}}" class="btn btn-primary" title="Active"><i class="fa-solid fa-thumbs-up "></i></a>
 
                                             @endif
                                         </td>

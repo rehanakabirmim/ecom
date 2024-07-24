@@ -13,9 +13,11 @@
 	<link href="{{asset('adminbackend')}}/assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
 	<link href="{{asset('adminbackend')}}/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="{{asset('adminbackend')}}/assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<link href="{{asset('adminbackend')}}/assets/plugins/input-tags/css/tagsinput.css" rel="stylesheet" />
 	<!-- loader-->
 	<link href="{{asset('adminbackend')}}/assets/css/pace.min.css" rel="stylesheet" />
 	<script src="{{asset('adminbackend')}}/assets/js/pace.min.js"></script>
+
 	<!-- Bootstrap CSS -->
 	<link href="{{asset('adminbackend')}}/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{asset('adminbackend')}}/assets/css/app.css" rel="stylesheet">
@@ -24,10 +26,14 @@
 	<link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/dark-theme.css" />
 	<link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/header-colors.css" />
-	
-	
+	<!-- datatable link -->
+	<link href="{{asset('adminbackend')}}/assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 	<!-- Toaster link -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+{{-- frontawesome --}}
+    <link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/all.min.css" />
+
 
 	<title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 </head>
@@ -158,6 +164,7 @@
 	<!--plugins-->
 	<script src="{{asset('adminbackend')}}/assets/js/jquery.min.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="{{asset('adminbackend')}}/assets/plugins/input-tags/js/tagsinput.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/chartjs/js/Chart.min.js"></script>
@@ -173,13 +180,24 @@
 		  });
 	  </script>
 	  <script src="{{asset('adminbackend')}}/assets/js/index.js"></script>
-	<!--app JS-->
+	  <script src="{{asset('adminbackend')}}/assets/js/validate.min.js"></script>
+	<!-- datatable -->
+	  <script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+	<script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+     {{-- frontaewsome --}}
+     <script src="{{asset('adminbackend')}}/assets/js/all.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
+	</script>
+
+	  <!--app JS-->
 	<script src="{{asset('adminbackend')}}/assets/js/app.js"></script>
 
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- toaster -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
  @if(Session::has('message'))
@@ -199,10 +217,28 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<!-- SweetAlert for delete -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
+
+ <script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+	</script>
+
+
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+</script>
+
 </body>
 
 </html>

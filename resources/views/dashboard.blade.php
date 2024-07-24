@@ -13,6 +13,8 @@
     <meta property="og:image" content="" />
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontend')}}/assets/imgs/theme/favicon.svg" />
+
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/main.css?v=5.3" />
 
@@ -22,8 +24,8 @@
 </head>
 
 <body>
- 
-    
+
+
    @include('frontend.body.header')
     <!--End header-->
 
@@ -65,8 +67,7 @@
     <script src="{{asset('frontend')}}/assets/js/main.js?v=5.3"></script>
     <script src="{{asset('frontend')}}/assets/js/shop.js?v=5.3"></script>
 
-
-
+   
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 <script>
@@ -87,9 +88,9 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
 </body>
 

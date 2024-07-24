@@ -17,7 +17,7 @@
 	<!-- loader-->
 	<link href="{{asset('adminbackend')}}/assets/css/pace.min.css" rel="stylesheet" />
 	<script src="{{asset('adminbackend')}}/assets/js/pace.min.js"></script>
-	
+
 	<!-- Bootstrap CSS -->
 	<link href="{{asset('adminbackend')}}/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="{{asset('adminbackend')}}/assets/css/app.css" rel="stylesheet">
@@ -31,6 +31,8 @@
 	<!-- Toaster link -->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+{{-- frontawesome --}}
+    <link rel="stylesheet" href="{{asset('adminbackend')}}/assets/css/all.min.css" />
 
 
 	<title>Rukada - Responsive Bootstrap 5 Admin Template</title>
@@ -182,12 +184,15 @@
 	<!-- datatable -->
 	  <script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 	<script src="{{asset('adminbackend')}}/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+     {{-- frontaewsome --}}
+     <script src="{{asset('adminbackend')}}/assets/js/all.min.js"></script>
+
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
 		  } );
 	</script>
-	
+
 	  <!--app JS-->
 	<script src="{{asset('adminbackend')}}/assets/js/app.js"></script>
 
@@ -212,9 +217,9 @@
 
     case 'error':
     toastr.error(" {{ Session::get('message') }} ");
-    break; 
+    break;
  }
- @endif 
+ @endif
 </script>
 
 

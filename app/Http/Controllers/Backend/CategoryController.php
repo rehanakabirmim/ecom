@@ -29,46 +29,46 @@ class CategoryController extends Controller
             $name_gen = hexdec(uniqid()).'.'.$request->file('category_image')->getClientOriginalExtension();
             $img = $manager->read($request->file('category_image'));
             $img = $img->resize(120,120);
-            
+
             $img->toJpeg(80)->save(base_path('public/upload/category/'.$name_gen));
             $save_url = 'public/upload/category/'.$name_gen;
              Category::insert([
                         'category_name' => $request->category_name,
                         'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
-                        'category_image' => $save_url, 
+                        'category_image' => $save_url,
                     ]);
-            
+
                    $notification = array(
                         'message' => 'Category Inserted Successfully',
                         'alert-type' => 'success'
                     );
-            
-                    return redirect()->route('all.category')->with($notification); 
-            
-            
-            
-            
-            
+
+                    return redirect()->route('all.category')->with($notification);
+
+
+
+
+
                 }//end if
                 else{
                     Category::insert([
                         'category_name' => $request->category_name,
                         'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
-                       
+
                     ]);
-            
+
                    $notification = array(
                         'message' => 'Category Inserted without Image Successfully',
                         'alert-type' => 'success'
                     );
-            
-                    return redirect()->route('all.category')->with($notification); 
-            
-            
+
+                    return redirect()->route('all.category')->with($notification);
+
+
                 }
-            
-            
-            
+
+
+
             } //end method
 
 
@@ -77,9 +77,9 @@ class CategoryController extends Controller
                 return view('backend.category.category_edit',compact('category'));
 
 
-            }//end method   
-            
-            
+            }//end method
+
+
 
             public function UpdateCategory(Request $request){
                 $category_id = $request->id;
@@ -90,7 +90,7 @@ class CategoryController extends Controller
                     $name_gen = hexdec(uniqid()).'.'.$request->file('category_image')->getClientOriginalExtension();
                     $img = $manager->read($request->file('category_image'));
                     $img = $img->resize(120,120);
-                    
+
                     $img->toJpeg(80)->save(base_path('public/upload/category/'.$name_gen));
                     $save_url = 'public/upload/category/'.$name_gen;
 
@@ -101,31 +101,31 @@ class CategoryController extends Controller
                      Category::findOrFail($category_id)->update([
                                 'category_name' => $request->category_name,
                                 'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
-                                'category_image' => $save_url, 
+                                'category_image' => $save_url,
                             ]);
-                    
+
                            $notification = array(
                                 'message' => 'Category Updateded with image Successfully',
                                 'alert-type' => 'success'
                             );
-                    
-                            return redirect()->route('all.category')->with($notification); 
-                    
-                    
-                    
-                    
-                    
+
+                            return redirect()->route('all.category')->with($notification);
+
+
+
+
+
                         }//end if
 
 
-                       
+
                             else {
 
                                 Category::findOrFail($category_id)->update([
                                'category_name' => $request->category_name,
-                               'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)), 
+                               'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
                            ]);
-                    
+
                            $notification = array(
                             'message' => 'Category Updated without image Successfully',
                             'alert-type' => 'success'
@@ -139,23 +139,23 @@ class CategoryController extends Controller
                     }//end method
 
 
-  public function DeleteCategory($id){
+            public function DeleteCategory($id){
 
-    $category = Category::findOrFail($id);
-    $img = $category->category_image;
-    
+                $category = Category::findOrFail($id);
+                $img = $category->category_image;
 
 
-    Category::findOrFail($id)->delete();
 
-    $notification = array(
-        'message' => 'Category Deleted Successfully',
-        'alert-type' => 'success'
-    );
+                Category::findOrFail($id)->delete();
 
-    return redirect()->back()->with($notification); 
-  }  //end method                
-                
+                $notification = array(
+                    'message' => 'Category Deleted Successfully',
+                    'alert-type' => 'success'
+                );
+
+                return redirect()->back()->with($notification);
+            }  //end method
+
 
 
 

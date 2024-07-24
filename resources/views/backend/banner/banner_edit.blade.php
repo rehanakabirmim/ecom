@@ -8,19 +8,19 @@
 
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Edit Category</div>
+					<div class="breadcrumb-title pe-3">Edit Banner</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+								<li class="breadcrumb-item active" aria-current="page">Edit Bannerr</li>
 							</ol>
 						</nav>
 					</div>
 					<div class="ms-auto">
 						<div class="btn-group">
-                        {{-- <!-- <a href="{{route('all.category')}}" class="btn btn-primary">All Category</a> --> --}}
+                        {{-- <a href="{{route('all.banner')}}" class="btn btn-primary">All Banner</a> --}}
 
 						</div>
 					</div>
@@ -33,40 +33,41 @@
 					<div class="col-lg-10">
 						<div class="card">
 							<div class="card-body">
-								<form id="myForm"  method="post" action="{{route('update.category')}}" enctype="multipart/form-data">
+
+								<form id="myForm" method="post" action="{{ route('update.banner') }}" enctype="multipart/form-data" >
 									@csrf
 
-							<input type="hidden" name="id" value="{{$category->id}}">
-							<input type="hidden" name="old_image" value="{{$category->category_image}}">
+                                    <input type="hidden" name="id" value="{{$banners->id}}">
+                                    <input type="hidden" name="old_image" value="{{$banners->banner_image}}">
 
 								<div class="row mb-3">
 									<div class="col-sm-3">
-										<h6 class="mb-0">Category Name</h6>
+										<h6 class="mb-0">Banner Title</h6>
 									</div>
 									<div class="form-group col-sm-9 text-secondary">
-										<!-- <input type="text" name="brand_name" class="form-control" placeholder="Brand Name" /> -->
 
-										<input type="text" class="form-control" id="category_name" name="category_name" value="{{$category->category_name}}">
+										<input type="text" class="form-control" id="	banner_title" name="banner_title" value={{$banners-> banner_title}}>
 									</div>
 								</div>
-								<!-- <div class="row mb-3">
-									<div class="col-sm-3">
-										<h6 class="mb-0">Brand Slug</h6>
-									</div>
-									<div class="col-sm-9 text-secondary">
-										<input type="text" name="brand_slug" class="form-control" placeholder="Brand Slug" />
-									</div>
-								</div> -->
 
+                                <div class="row mb-3">
+									<div class="col-sm-3">
+										<h6 class="mb-0">Banner URL</h6>
+									</div>
+									<div class="form-group col-sm-9 text-secondary">
+
+										<input type="text" class="form-control" id="banner_url" name="banner_url" value="{{$banners->banner_url }}">
+									</div>
+								</div>
 
 
 
 								<div class="row mb-3">
 									<div class="col-sm-3">
-										<h6 class="mb-0">Category Photo</h6>
+										<h6 class="mb-0">Banner Image</h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-										<input  type="file" name="category_image" class="form-control" id="image" />
+										<input  type="file" name="banner_image" class="form-control" id="image"/>
 									</div>
 								</div>
 
@@ -76,8 +77,8 @@
 										<h6 class="mb-0"> </h6>
 									</div>
 									<div class="col-sm-9 text-secondary">
-									<img id="showImage" src="{{ asset(str_replace('public/', '', $category->category_image)) }}"
-										alt="Category" style="width: 100px; height: 100px;">
+									<img id="showImage" src="{{ asset(str_replace('public/', '', $banners->banner_image)) }}"
+										alt="Slider" style="width: 100px; height: 100px;">
 
 									</div>
 								</div>
@@ -104,13 +105,20 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                banner_title: {
+                    required : true,
+                },
+                banner_url: {
                     required : true,
                 },
             },
             messages :{
-                category_name: {
-                    required : 'Please Enter Category Name',
+                banner_title: {
+                    required : 'Please Enter Banner Title',
+                },
+
+                banner_url: {
+                    required : 'Please Enter Banner URL',
                 },
             },
             errorElement : 'span',

@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('vendor.vendor_dashboard')
+@section('vendor')
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -27,7 +27,7 @@
             <div class="card-body p-4">
                 <h5 class="card-title">Add New Product</h5>
                 <hr/>
-        <form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data" >
+        <form id="myForm" method="post" action="{{ route('vendor.store.product') }}" enctype="multipart/form-data" >
                 @csrf
                 <div class="form-body mt-4">
                 <div class="row">
@@ -143,17 +143,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-12 form-group">
-                            <label for="inputCollection" class="form-label">Select Vendor</label>
-                            <select name="vendor_id" class="form-select" id="inputCollection">
-                                <option></option>
-                                @foreach ( $activeVendor as $vendor)
 
-                                <option value="{{$vendor->id}}">{{$vendor->name}}</option>
-                                @endforeach
-
-                                </select>
-                            </div>
 
 
                             <div class="row g-3">
@@ -352,7 +342,7 @@
             var category_id = $(this).val();
             if (category_id) {
                 $.ajax({
-                    url: "{{ url('/subcategory/ajax') }}/"+category_id,
+                    url: "{{ url('/vendor/subcategory/ajax') }}/"+category_id,
                     type: "GET",
                     dataType:"json",
                     success:function(data){

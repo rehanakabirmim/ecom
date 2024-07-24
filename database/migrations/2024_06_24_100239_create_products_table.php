@@ -24,15 +24,15 @@ return new class extends Migration
             $table->string('product_size')->nullable();
             $table->string('product_color')->nullable();
             $table->string('selling_price');
-            $table->string('discount_price')->nullable;
+            $table->string('discount_price')->nullable();
             $table->text('short_descp');
             $table->text('long_descp');
             $table->string('product_thambnail');
-            $table->string('vendor_id')->nullable;
-            $table->string('hot_deals')->nullable;
-            $table->string('featured')->nullable;
-            $table->string('special_offer')->nullable;
-            $table->string('special_deals')->nullable;
+            $table->string('vendor_id')->nullable();
+            $table->string('hot_deals')->nullable();
+            $table->string('featured')->nullable();
+            $table->string('special_offer')->nullable();
+            $table->string('special_deals')->nullable();
             $table->string('status')->default(0);
 
             $table->timestamps();
