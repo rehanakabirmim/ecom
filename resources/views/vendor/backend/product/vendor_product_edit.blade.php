@@ -118,7 +118,7 @@
                                 </select>
                             </div>
 
-                           
+
 
 
                             <div class="row g-3">
@@ -179,6 +179,35 @@
 </div>
 
 </div>
+
+
+<!-- /// Main Image Thambnail Update ////// -->
+<div class="page-content">
+	<h6 class="text-uppercase" style="margin-left:16%;">Update Main Image Thambnail </h6>
+	<hr>
+<div class="card">
+<form method="post" action="{{ route('vendor.update.product.thambnail') }}" enctype="multipart/form-data" >
+			@csrf
+	<input type="hidden" name="id" value="{{ $products->id }}">
+	<input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">
+
+	<div class="card-body" style="margin-left:16%;">
+		<div class="mt-3">
+			<label for="formFile" class="form-label">Chose Thambnail Image </label>
+			<input name="product_thambnail" class="form-control" type="file" id="formFile">
+		</div>
+		<div class="mt-3">
+			<label for="formFile" class="form-label"> </label>
+			 <img  src="{{ asset(str_replace('public/', '', $products->product_thambnail)) }}" style="width:100px; height:100px">
+		</div>
+        <br>
+<input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+			 </div>
+			</form>
+			    </div>
+			</div>
+
+<!-- /// End Main Image Thambnail Update ////// -->
 
             <script type="text/javascript">
                 $(document).ready(function (){

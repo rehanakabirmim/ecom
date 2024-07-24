@@ -80,6 +80,7 @@ Route::middleware(['auth','role:vendor'])->group(function(){
         Route::post('/vendor/store/product','VendorStoreProduct')->name('vendor.store.product');
         Route::get('/vendor/edit/product/{id}','VendorEditProduct')->name('vendor.edit.product');
         Route::post('/vendor/update/product','VendorUpdateProduct')->name('vendor.update.product');
+        Route::post('/vendor/update/thambnail','UpdateProductThambnail')->name('vendor.update.product.thambnail');
         Route::get('/vendor/inactive/product/{id}','VendorProductInactive')->name('vendor.product.inactive');
 
         Route::get('/vendor/active/product/{id}','VendorProductActive')->name('vendor.product.active');
@@ -153,6 +154,7 @@ Route::get('/delete/brand/{id}','DeleteBrand')->name('delete.brand');
             Route::post('/store/product','StoreProduct')->name('store.product');
             Route::get('/edit/product/{id}','EditProduct')->name('edit.product');
             Route::post('/update/product','UpdateProduct')->name('update.product');
+            Route::post('/update/product/thambnail','UpdateProductThambnail')->name('update.product.thambnail');
             Route::get('/product/inactive/{id}','ProductInactive')->name('product.inactive');
             Route::get('/product/active/{id}','ProductActive')->name('product.active');
             Route::get('/product/delete/{id}','ProductDelete')->name('product.delete');

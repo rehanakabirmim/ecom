@@ -69,78 +69,13 @@ public function StoreProduct(Request $request){
 
                 ]);
 
-            //    $notification = array(
-            //         'message' => 'Product Inserted Successfully',
-            //         'alert-type' => 'success'
-            //     );
-
-            //     return redirect()->route('all.product')->with($notification);
 
 
 
 
 
             }//end if
-            // else{
-            //    Product::insert([
-            //     'brand_id'=>$request->brand_id,
-            //     'category_id'=>$request->category_id,
-            //     'subcategory_id'=>$request->subcategory_id,
-            //     'product_name' => $request->product_name,
-            //    'product_slug' => strtolower(str_replace(' ', '-',$request->product_name)),
-            //     'product_code'=>$request->product_code,
-            //     'product_tags'=>$request->product_tags,
-            //     'product_size'=>$request->product_size,
 
-            //     'product_color'=>$request->product_color,
-            //     'selling_price'=>$request->selling_price,
-            //     'discount_price'=>$request->discount_price,
-            //     'short_descp'=>$request->short_descp,
-            //     'long_descp'=>$request->long_descp,
-
-            //    'vendor_id'=>$request->	vendor_id,
-
-            //     'hot_deals'=>$request->hot_deals,
-            //     'featured'=>$request->featured,
-            //     'special_offer'=>$request->special_offer,
-            //     'special_deals'=>$request->special_deals,
-
-            //     ]);
-
-            //    $notification = array(
-            //         'message' => 'Product Inserted without Image Successfully',
-            //         'alert-type' => 'success'
-            //     );
-
-            //     return redirect()->route('all.product')->with($notification);
-
-
-            // }//end else
-
-            //MultiImage Upload from here//
-
-            // $images = $request->file('multi_img');
-            // foreach( $images as $imge){
-
-            //     // $manager = new ImageManager(new Driver());
-            //     $make_name = hexdec(uniqid()).'.'.$request->file('$imge')->getClientOriginalExtension();
-            //     $img = $manager->read($request->file('$imge'));
-            //     $img = $img->resize(800,800);
-
-            //     $img->toJpeg(80)->save(base_path('public/upload/Product/multi-image/'.$make_name));
-            //     $uploadPath = 'public/upload/products/multi-image/'.$make_name;
-
-
-            //     MultiImg::insert([
-
-            //         'product_id' => $product_id,
-            //         'photo_name' => $uploadPath,
-            //         'created_at'=>Carbon::now(),
-
-
-            //     ]);
-            // }//end foreach
-  //End MultiImage Upload from here//
 
         $notification = array(
             'message' => 'Product Inserted  Successfully',
@@ -234,6 +169,43 @@ public function StoreProduct(Request $request){
         return redirect()->back()->with($notification);
 
     }//end method
+
+
+    public function UpdateProductThambnail(Request $request){
+
+        $pro_id = $request->id;
+        $oldImage = $request->old_img;
+
+        if($request->file('product_thambnail')){
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.$request->file('product_thambnail')->getClientOriginalExtension();
+            $img = $manager->read($request->file('product_thambnail'));
+            $img = $img->resize(800,800);
+
+            $img->toJpeg(80)->save(base_path('public/upload/products/thambnail/'.$name_gen));
+            $save_url = 'public/upload/products/thambnail/'.$name_gen;
+
+
+
+         if (file_exists($oldImage)) {
+           unlink($oldImage);
+        }
+
+        Product::findOrFail($pro_id)->update([
+
+            'product_thambnail' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+    }//end if
+       $notification = array(
+            'message' => 'Product Image Thambnail Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
+
+    }// End Method
 
 
     public function ProductDelete($id){
