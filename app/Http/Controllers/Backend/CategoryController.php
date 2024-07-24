@@ -130,18 +130,12 @@ class CategoryController extends Controller
                             'message' => 'Category Updated without image Successfully',
                             'alert-type' => 'success'
                         );
-                
-                        return redirect()->route('all.category')->with($notification); 
-                
-                        }//end else 
-                    
-                    
-                    
-                        
-    
-    
-    
-    
+
+                        return redirect()->route('all.category')->with($notification);
+
+                        }//end else
+
+
                     }//end method
 
 

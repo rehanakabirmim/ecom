@@ -88,9 +88,6 @@ Route::get('/delete/brand/{id}','DeleteBrand')->name('delete.brand');
 });
 
 
-
-});
-
 //For Admin Category
 Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(CategoryController::class)->group(function(){
@@ -102,13 +99,7 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
     });
 
-
-
-    });
-
-
     //For Admin SubCategory
-    Route::middleware(['auth','role:admin'])->group(function(){
     Route::controller(SubCategoryController::class)->group(function(){
     Route::get('/all/subcategory','AllSubCategory')->name('all.subcategory');
     Route::get('/add/subcategory','AddSubCategory')->name('add.subcategory');
@@ -119,9 +110,6 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/subcategory/ajax/{category_id}','GetSubCategory');
     }); //end medthod
 
-
-
-    });//end middleware
 
      //For Vendor Active and Inactive all route
      Route::middleware(['auth','role:admin'])->group(function(){
@@ -138,19 +126,11 @@ Route::middleware(['auth','role:admin'])->group(function(){
 
 
 
-        });//end middleware
 
 
 
-         //For Product all route
-
-            Route::middleware(['auth','role:admin'])->group(function(){
-            Route::controller(ProductController::class)->group(function(){
-            Route::get('/all/product','AllProduct')->name('all.product');
-            Route::get('/add/product','AddProduct')->name('add.product');
-
-            });
 
 
 
-        });//end middleware
+
+
